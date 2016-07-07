@@ -1,6 +1,13 @@
 # OnboardingKit
 `OnboardingKit` is a simple and interactive framework for making iOS onboarding experience easy and fun!  
 
+### Features 
+- [x] Customizable page views 
+- [x] Customizable background images 
+- [x] Customazible containers' background images
+- [x] Animatable page control 
+- [x] Animatable transitions between pages on swipes 
+
 # Installation
 ### CocoaPods
 
@@ -70,3 +77,11 @@ If you need a custom configuration for a `PageView` this is possible with a dele
 ```
 
 That's it. :]
+
+# Community
+* For help & feedback please use [issues](https://github.com/Athlee/OnboardingKit/issues).
+* Got a new feature? Please submit a [pull request](https://github.com/Athlee/OnboardingKit/pulls).
+* Email us with urgent queries. 
+
+# License
+`OnboardingKit` is available under the MIT license, see the [LICENSE](https://github.com/Athlee/OnboardingKit/blob/master/LICENSE) file for more information.
