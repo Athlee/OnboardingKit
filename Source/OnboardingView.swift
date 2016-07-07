@@ -8,22 +8,6 @@
 
 import UIKit
 
-internal protocol Completion {
-  func complete()
-}
-
-internal final class CompletionObject: Completion {
-  internal var completion: ((Void) -> Void)?
-  
-  internal static let sharedInstance = CompletionObject()
-  
-  private init() { }
-  
-  internal func complete() {
-    completion?()
-    completion = nil 
-  }
-}
 
 public final class OnboardingView: UIView {
   

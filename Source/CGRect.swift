@@ -8,8 +8,8 @@
 
 import UIKit
 
-public extension CGRect {
-  var midPoint: CGPoint {
+internal extension CGRect {
+  internal var midPoint: CGPoint {
     return CGPoint(x: midX, y: midY)
   }
 }
