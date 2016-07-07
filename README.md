@@ -1,7 +1,7 @@
 # OnboardingKit
-`OnboardingKit` is simple and interactive framework for making iOS onboarding experience easy and fun!  
+`OnboardingKit` is a simple and interactive framework for making iOS onboarding experience easy and fun!  
 
-# Installtion
+# Installation
 ### CocoaPods
 
 `OnboardingKit` is available for installation using the [CocoaPods](https://cocoapods.org).
