@@ -1,3 +1,7 @@
+<p align="center">
+  <img src ="https://raw.githubusercontent.com/Athlee/OnboardingKit/master/Assets/onboardingdemox1.png" />
+</p>
+
 # OnboardingKit
 `OnboardingKit` is a simple and interactive framework for making iOS onboarding experience easy and fun!  
 
