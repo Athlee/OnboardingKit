@@ -9,12 +9,28 @@
 import UIKit
 
 public struct OnboardingConfiguration {
-  let image: UIImage
-  let itemImage: UIImage
-  let pageTitle: String
-  let pageDescription: String
+  public let image: UIImage
+  public let itemImage: UIImage
+  public let pageTitle: String
+  public let pageDescription: String
   
-  let backgroundImage: UIImage?
-  let topBackgroundImage: UIImage?
-  let bottomBackgroundImage: UIImage?
+  public let backgroundImage: UIImage?
+  public let topBackgroundImage: UIImage?
+  public let bottomBackgroundImage: UIImage?
+  
+  public init(image: UIImage,
+              itemImage: UIImage,
+              pageTitle: String,
+              pageDescription: String,
+              backgroundImage: UIImage? = nil,
+              topBackgroundImage: UIImage? = nil,
+              bottomBackgroundImage: UIImage? = nil) {
+    self.image = image
+    self.itemImage = itemImage
+    self.pageTitle = pageTitle
+    self.pageDescription = pageDescription
+    self.backgroundImage = backgroundImage
+    self.topBackgroundImage = topBackgroundImage
+    self.bottomBackgroundImage = bottomBackgroundImage
+  }
 }
