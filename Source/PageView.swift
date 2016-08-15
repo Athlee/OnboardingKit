@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TZStackView
 
 public protocol Configurable {
   associatedtype Configuration
@@ -19,8 +20,8 @@ public final class PageView: UIView {
   
   public var configuration: OnboardingConfiguration! { didSet { configure(configuration) } }
   
-  private let topStackView = UIStackView()
-  private let bottomStackView = UIStackView()
+  private let topStackView = TZStackView()
+  private let bottomStackView = TZStackView()
   
   public var image: UIImage = UIImage() { didSet { imageView.image = image } }
   public var pageTitle: String = "" { didSet { titleLabel.text = pageTitle } }
@@ -95,14 +96,23 @@ public final class PageView: UIView {
     backgroundImageView.contentMode = .ScaleAspectFill
     backgroundImageView.image = backgroundImage
     
-    let backgroundAnchors = [
-      backgroundImageView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
-      backgroundImageView.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
-      backgroundImageView.topAnchor.constraintEqualToAnchor(topAnchor),
-      backgroundImageView.bottomAnchor.constraintEqualToAnchor(bottomAnchor)
-      ].flatMap { $0 }
-    
-    NSLayoutConstraint.activateConstraints(backgroundAnchors)
+    if #available(iOS 9.0, *) {
+        let backgroundAnchors = [
+            backgroundImageView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
+            backgroundImageView.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
+            backgroundImageView.topAnchor.constraintEqualToAnchor(topAnchor),
+            backgroundImageView.bottomAnchor.constraintEqualToAnchor(bottomAnchor)
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(backgroundAnchors)
+    } else {
+        let backgroundAnchors = [
+            backgroundImageView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor),
+            backgroundImageView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor),
+            backgroundImageView.anchors.topAnchor.constraintEqualToAnchor(anchors.topAnchor),
+            backgroundImageView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor)
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(backgroundAnchors)
+    }
   }
   
   private func setupTopBackgroundImageView() {
@@ -113,14 +123,23 @@ public final class PageView: UIView {
     topBackgroundImageView.contentMode = .ScaleToFill
     topBackgroundImageView.image = topBackgroundImage
     
-    let bottomBackgroundAnchors = [
-      topBackgroundImageView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
-      topBackgroundImageView.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
-      topBackgroundImageView.topAnchor.constraintEqualToAnchor(topAnchor),
-      topBackgroundImageView.heightAnchor.constraintEqualToAnchor(heightAnchor, multiplier: 0.5)
-      ].flatMap { $0 }
-    
-    NSLayoutConstraint.activateConstraints(bottomBackgroundAnchors)
+    if #available(iOS 9.0, *) {
+        let bottomBackgroundAnchors = [
+            topBackgroundImageView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
+            topBackgroundImageView.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
+            topBackgroundImageView.topAnchor.constraintEqualToAnchor(topAnchor),
+            topBackgroundImageView.heightAnchor.constraintEqualToAnchor(heightAnchor, multiplier: 0.5)
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(bottomBackgroundAnchors)
+    } else {
+        let bottomBackgroundAnchors = [
+            topBackgroundImageView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor),
+            topBackgroundImageView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor),
+            topBackgroundImageView.anchors.topAnchor.constraintEqualToAnchor(anchors.topAnchor),
+            topBackgroundImageView.anchors.heightAnchor.constraintEqualToAnchor(anchors.heightAnchor, multiplier: 0.5)
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(bottomBackgroundAnchors)
+    }
   }
   
   private func setupBottomBackgroundImageView() {
@@ -131,31 +150,54 @@ public final class PageView: UIView {
     bottomBackgroundImageView.contentMode = .ScaleToFill
     bottomBackgroundImageView.image = bottomBackgroundImage
     
-    let bottomBackgroundAnchors = [
-      bottomBackgroundImageView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
-      bottomBackgroundImageView.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
-      bottomBackgroundImageView.bottomAnchor.constraintEqualToAnchor(bottomAnchor),
-      bottomBackgroundImageView.heightAnchor.constraintEqualToAnchor(heightAnchor, multiplier: 0.5)
-      ].flatMap { $0 }
-    
-    NSLayoutConstraint.activateConstraints(bottomBackgroundAnchors)
+    if #available(iOS 9.0, *) {
+        let bottomBackgroundAnchors = [
+            bottomBackgroundImageView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
+            bottomBackgroundImageView.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
+            bottomBackgroundImageView.bottomAnchor.constraintEqualToAnchor(bottomAnchor),
+            bottomBackgroundImageView.heightAnchor.constraintEqualToAnchor(heightAnchor, multiplier: 0.5)
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(bottomBackgroundAnchors)
+    } else {
+        let bottomBackgroundAnchors = [
+            bottomBackgroundImageView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor),
+            bottomBackgroundImageView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor),
+            bottomBackgroundImageView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor),
+            bottomBackgroundImageView.anchors.heightAnchor.constraintEqualToAnchor(anchors.heightAnchor, multiplier: 0.5)
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(bottomBackgroundAnchors)
+    }
   }
   
   private func setupTopStackView() {
     // Top StackView layout setup
     topStackView.translatesAutoresizingMaskIntoConstraints = false
     
-    topContainerAnchor = topStackView.topAnchor.constraintEqualToAnchor(topAnchor, constant: topContainerOffset)!
-    topContainerHeightAnchor = topStackView.heightAnchor.constraintEqualToAnchor(heightAnchor, multiplier: 0.5, constant: -topContainerOffset - offsetBetweenContainers / 2)!
+    if #available(iOS 9.0, *) {
+        topContainerAnchor = topStackView.topAnchor.constraintEqualToAnchor(topAnchor, constant: topContainerOffset)!
+        topContainerHeightAnchor = topStackView.heightAnchor.constraintEqualToAnchor(heightAnchor, multiplier: 0.5, constant: -topContainerOffset - offsetBetweenContainers / 2)!
+    } else {
+        topContainerAnchor = topStackView.anchors.topAnchor.constraintEqualToAnchor(anchors.topAnchor, constant: topContainerOffset)
+        topContainerHeightAnchor = topStackView.anchors.heightAnchor.constraintEqualToAnchor(anchors.heightAnchor, multiplier: 0.5, constant: -topContainerOffset - offsetBetweenContainers / 2)
+    }
     
-    let topAnchors = [
-      topStackView.leadingAnchor.constraintEqualToAnchor(leadingAnchor, constant: topContainerOffset),
-      topStackView.trailingAnchor.constraintEqualToAnchor(trailingAnchor, constant: -topContainerOffset),
-      topContainerAnchor,
-      topContainerHeightAnchor
-      ].flatMap { $0 }
-    
-    NSLayoutConstraint.activateConstraints(topAnchors)
+    if #available(iOS 9.0, *) {
+        let topAnchors = [
+            topStackView.leadingAnchor.constraintEqualToAnchor(leadingAnchor, constant: topContainerOffset),
+            topStackView.trailingAnchor.constraintEqualToAnchor(trailingAnchor, constant: -topContainerOffset),
+            topContainerAnchor,
+            topContainerHeightAnchor
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(topAnchors)
+    } else {
+        let topAnchors = [
+            topStackView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor, constant: topContainerOffset),
+            topStackView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor, constant: -topContainerOffset),
+            topContainerAnchor,
+            topContainerHeightAnchor
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(topAnchors)
+    }
     
     // StackViews common setup
     topStackView.axis = .Vertical
@@ -184,17 +226,31 @@ public final class PageView: UIView {
     // Bottom StackView layout setup
     bottomStackView.translatesAutoresizingMaskIntoConstraints = false
     
-    bottomContainerAnchor = bottomStackView.bottomAnchor.constraintEqualToAnchor(bottomAnchor, constant: -bottomContainerOffset)!
-    bottomContainerHeightAnchor = bottomStackView.heightAnchor.constraintEqualToAnchor(heightAnchor, multiplier: 0.5, constant: -bottomContainerOffset - offsetBetweenContainers / 2)!
+    if #available(iOS 9.0, *) {
+        bottomContainerAnchor = bottomStackView.bottomAnchor.constraintEqualToAnchor(bottomAnchor, constant: -bottomContainerOffset)!
+        bottomContainerHeightAnchor = bottomStackView.heightAnchor.constraintEqualToAnchor(heightAnchor, multiplier: 0.5, constant: -bottomContainerOffset - offsetBetweenContainers / 2)!
+    } else {
+        bottomContainerAnchor = bottomStackView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor, constant: -bottomContainerOffset)
+        bottomContainerHeightAnchor = bottomStackView.anchors.heightAnchor.constraintEqualToAnchor(anchors.heightAnchor, multiplier: 0.5, constant: -bottomContainerOffset - offsetBetweenContainers / 2)
+    }
     
-    let bottomAnchors = [
-      bottomStackView.leadingAnchor.constraintEqualToAnchor(leadingAnchor, constant: bottomContainerOffset),
-      bottomStackView.trailingAnchor.constraintEqualToAnchor(trailingAnchor, constant: -bottomContainerOffset),
-      bottomContainerAnchor,
-      bottomContainerHeightAnchor
-      ].flatMap { $0 }
-    
-    NSLayoutConstraint.activateConstraints(bottomAnchors)
+    if #available(iOS 9.0, *) {
+        let bottomAnchors = [
+            bottomStackView.leadingAnchor.constraintEqualToAnchor(leadingAnchor, constant: bottomContainerOffset),
+            bottomStackView.trailingAnchor.constraintEqualToAnchor(trailingAnchor, constant: -bottomContainerOffset),
+            bottomContainerAnchor,
+            bottomContainerHeightAnchor
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(bottomAnchors)
+    } else {
+        let bottomAnchors = [
+            bottomStackView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor, constant: bottomContainerOffset),
+            bottomStackView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor, constant: -bottomContainerOffset),
+            bottomContainerAnchor,
+            bottomContainerHeightAnchor
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(bottomAnchors)
+    }
     
     // StackViews common setup
     bottomStackView.axis = .Vertical

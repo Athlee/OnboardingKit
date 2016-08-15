@@ -75,16 +75,29 @@ public final class OnboardingView: UIView {
     insertSubview(pageControlView, atIndex: Int.max)
     
     pageControlView.translatesAutoresizingMaskIntoConstraints = false
-    bottomPageControlViewAnchor = pageControlView.bottomAnchor.constraintEqualToAnchor(bottomAnchor, constant: -bottomPageControlViewOffset)!
+    if #available(iOS 9.0, *) {
+        bottomPageControlViewAnchor = pageControlView.bottomAnchor.constraintEqualToAnchor(bottomAnchor, constant: -bottomPageControlViewOffset)!
+    } else {
+        bottomPageControlViewAnchor = pageControlView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor, constant: -bottomPageControlViewOffset)
+    }
     
-    let pageControlViewAnchors = [
-      pageControlView.leadingAnchor.constraintEqualToAnchor(leadingAnchor, constant: 8),
-      pageControlView.trailingAnchor.constraintEqualToAnchor(trailingAnchor, constant:  -8),
-      bottomPageControlViewAnchor,
-      pageControlView.heightAnchor.constraintEqualToConstant(PageControlView.radiusExpanded)
-      ].flatMap { $0 }
-    
-    NSLayoutConstraint.activateConstraints(pageControlViewAnchors)
+    if #available(iOS 9.0, *) {
+        let pageControlViewAnchors = [
+            pageControlView.leadingAnchor.constraintEqualToAnchor(leadingAnchor, constant: 8),
+            pageControlView.trailingAnchor.constraintEqualToAnchor(trailingAnchor, constant:  -8),
+            bottomPageControlViewAnchor,
+            pageControlView.heightAnchor.constraintEqualToConstant(PageControlView.radiusExpanded)
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(pageControlViewAnchors)
+    } else {
+        let pageControlViewAnchors = [
+            pageControlView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor, constant: 8),
+            pageControlView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor, constant:  -8),
+            bottomPageControlViewAnchor,
+            pageControlView.anchors.heightAnchor.constraintEqualToConstant(PageControlView.radiusExpanded)
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(pageControlViewAnchors)
+    }
     
     // Add resture recognizers
     addRecognizers()
@@ -119,14 +132,23 @@ public final class OnboardingView: UIView {
     
     pageView.translatesAutoresizingMaskIntoConstraints = false
     
-    let anchors = [
-      pageView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
-      pageView.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
-      pageView.topAnchor.constraintEqualToAnchor(topAnchor),
-      pageView.bottomAnchor.constraintEqualToAnchor(bottomAnchor)
-      ].flatMap { $0 }
-    
-    NSLayoutConstraint.activateConstraints(anchors)
+    if #available(iOS 9.0, *) {
+        let anchors = [
+            pageView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
+            pageView.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
+            pageView.topAnchor.constraintEqualToAnchor(topAnchor),
+            pageView.bottomAnchor.constraintEqualToAnchor(bottomAnchor)
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(anchors)
+    } else {
+        let _anchors = [
+            pageView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor),
+            pageView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor),
+            pageView.anchors.topAnchor.constraintEqualToAnchor(anchors.topAnchor),
+            pageView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor)
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(_anchors)
+    }
     
     pageView.configuration = config
     

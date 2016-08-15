@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OnboardingKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

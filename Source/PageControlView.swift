@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TZStackView
 
 public final class PageControlView: UIView {
   
@@ -45,7 +46,7 @@ public final class PageControlView: UIView {
   
   public var items: [PageItemView] = []
   
-  private var stackView = UIStackView()
+  private var stackView = TZStackView()
   private var stackViewCenterXAnchor: NSLayoutConstraint!
   private var stackViewWidthAnchor: NSLayoutConstraint!
   
@@ -89,17 +90,26 @@ public final class PageControlView: UIView {
     let height = PageControlView.radiusExpanded * 2
     
     stackView.translatesAutoresizingMaskIntoConstraints = false
-    stackViewCenterXAnchor = stackView.centerXAnchor.constraintEqualToAnchor(centerXAnchor)!
-    stackViewWidthAnchor = stackView.widthAnchor.constraintEqualToConstant(width)!
+    stackViewCenterXAnchor = stackView.anchors.centerXAnchor.constraintEqualToAnchor(anchors.centerXAnchor)
+    stackViewWidthAnchor = stackView.anchors.widthAnchor.constraintEqualToConstant(width)
 
-    let anchors = [
-      stackViewWidthAnchor,
-      stackView.heightAnchor.constraintEqualToConstant(height),
-      stackViewCenterXAnchor,
-      stackView.centerYAnchor.constraintEqualToAnchor(centerYAnchor)
-      ].flatMap { $0 }
-    
-    NSLayoutConstraint.activateConstraints(anchors)
+    if #available(iOS 9.0, *) {
+        let anchors = [
+            stackViewWidthAnchor,
+            stackView.heightAnchor.constraintEqualToConstant(height),
+            stackViewCenterXAnchor,
+            stackView.centerYAnchor.constraintEqualToAnchor(centerYAnchor)
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(anchors)
+    } else {
+        let _anchors = [
+            stackViewWidthAnchor,
+            stackView.anchors.heightAnchor.constraintEqualToConstant(height),
+            stackViewCenterXAnchor,
+            stackView.anchors.centerYAnchor.constraintEqualToAnchor(anchors.centerYAnchor)
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(_anchors)
+    }
     
     for _ in 0..<pages {
       let item = PageItemView()
@@ -120,7 +130,7 @@ public final class PageControlView: UIView {
   private func reload() {
     subviews.forEach { $0.removeFromSuperview() }
     
-    stackView = UIStackView()
+    stackView = TZStackView()
     stackViewWidthAnchor = nil
     stackViewCenterXAnchor = nil
     items = []
