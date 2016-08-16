@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OnboardingKit
 
 public final class OnboardingViewController: UIViewController {
 

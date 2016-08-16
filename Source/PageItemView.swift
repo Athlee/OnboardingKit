@@ -121,15 +121,24 @@ public final class PageItemView: UIView {
     
     addSubview(circleView)
     
-    let anchors = [
-      circleView.widthAnchor.constraintEqualToConstant(PageControlView.radius * 2),
-      circleView.heightAnchor.constraintEqualToConstant(PageControlView.radius * 2),
-      circleView.centerXAnchor.constraintEqualToAnchor(centerXAnchor),
-      circleView.centerYAnchor.constraintEqualToAnchor(centerYAnchor)
-      ].flatMap { $0 }
+    if #available(iOS 9.0, *) {
+        let anchors = [
+            circleView.widthAnchor.constraintEqualToConstant(PageControlView.radius * 2),
+            circleView.heightAnchor.constraintEqualToConstant(PageControlView.radius * 2),
+            circleView.centerXAnchor.constraintEqualToAnchor(centerXAnchor),
+            circleView.centerYAnchor.constraintEqualToAnchor(centerYAnchor)
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(anchors)
+    } else {
+        let _anchors = [
+            circleView.anchors.widthAnchor.constraintEqualToConstant(PageControlView.radius * 2),
+            circleView.anchors.heightAnchor.constraintEqualToConstant(PageControlView.radius * 2),
+            circleView.anchors.centerXAnchor.constraintEqualToAnchor(anchors.centerXAnchor),
+            circleView.anchors.centerYAnchor.constraintEqualToAnchor(anchors.centerYAnchor)
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(_anchors)
+    }
     
-    
-    NSLayoutConstraint.activateConstraints(anchors)
     
     // ImageView setup
     imageView.opaque = true 
@@ -140,14 +149,23 @@ public final class PageItemView: UIView {
     
     addSubview(imageView)
     
-    let imageViewAnchors = [
-      imageView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
-      imageView.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
-      imageView.topAnchor.constraintEqualToAnchor(topAnchor),
-      imageView.bottomAnchor.constraintEqualToAnchor(bottomAnchor)
-      ].flatMap { $0 }
-    
-    NSLayoutConstraint.activateConstraints(imageViewAnchors)
+    if #available(iOS 9.0, *) {
+        let imageViewAnchors = [
+            imageView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
+            imageView.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
+            imageView.topAnchor.constraintEqualToAnchor(topAnchor),
+            imageView.bottomAnchor.constraintEqualToAnchor(bottomAnchor)
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(imageViewAnchors)
+    } else {
+        let imageViewAnchors = [
+            imageView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor),
+            imageView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor),
+            imageView.anchors.topAnchor.constraintEqualToAnchor(anchors.topAnchor),
+            imageView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor)
+            ].flatMap { $0 }
+        NSLayoutConstraint.activateConstraints(imageViewAnchors)
+    }
     
   }
   
