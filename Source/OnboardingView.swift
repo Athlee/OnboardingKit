@@ -9,7 +9,7 @@
 import UIKit
 
 
-public final class OnboardingView: UIView {
+public final class OnboardingView: UIView, CAAnimationDelegate {
   
   // MARK: Properties 
   
@@ -19,7 +19,7 @@ public final class OnboardingView: UIView {
   
   public weak var delegate: OnboardingViewDelegate? {
     didSet {
-      for (i, pageView) in pageViews.enumerate() {
+      for (i, pageView) in pageViews.enumerated() {
         delegate?.onboardingView?(self, configurePageView: pageView, atPage: i)
       }
     }
@@ -28,10 +28,10 @@ public final class OnboardingView: UIView {
   public var topContainerOffset: CGFloat = 8 { didSet { pageViews.forEach { $0.topContainerOffset = topContainerOffset } } }
   public var bottomPageControlViewOffset: CGFloat = 32 { didSet { bottomPageControlViewAnchor.constant = -bottomPageControlViewOffset } }
   
-  private var bottomPageControlViewAnchor: NSLayoutConstraint!
+  fileprivate var bottomPageControlViewAnchor: NSLayoutConstraint!
   
-  private var pageViews: [PageView] = []
-  private var configurations: [Int: OnboardingConfiguration] = [:]
+  fileprivate var pageViews: [PageView] = []
+  fileprivate var configurations: [Int: OnboardingConfiguration] = [:]
   
   // MARK: Life cycle
   
@@ -50,16 +50,16 @@ public final class OnboardingView: UIView {
     setup()
   }
   
-  private var layouted = false
+  fileprivate var layouted = false
   public override func layoutSubviews() {
     super.layoutSubviews()
     
     if !layouted {
       layouted = true
       
-      for (i, pageView) in pageViews.enumerate() {
+      for (i, pageView) in pageViews.enumerated() {
         if i > 0 {
-          maskPageView(pageView, state: .Folded)
+          maskPageView(pageView, state: .folded)
         }
       }
     }
@@ -67,28 +67,28 @@ public final class OnboardingView: UIView {
   
   // MARK: Setup
   
-  private func setup() {
+  fileprivate func setup() {
     // Refresh
     topContainerOffset = 8
     
     // Setup PageControlView
-    insertSubview(pageControlView, atIndex: Int.max)
+    insertSubview(pageControlView, at: Int.max)
     
     pageControlView.translatesAutoresizingMaskIntoConstraints = false
     if #available(iOS 9.0, *) {
-        bottomPageControlViewAnchor = pageControlView.bottomAnchor.constraintEqualToAnchor(bottomAnchor, constant: -bottomPageControlViewOffset)!
+        bottomPageControlViewAnchor = pageControlView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -bottomPageControlViewOffset)
     } else {
         bottomPageControlViewAnchor = pageControlView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor, constant: -bottomPageControlViewOffset)
     }
     
     if #available(iOS 9.0, *) {
         let pageControlViewAnchors = [
-            pageControlView.leadingAnchor.constraintEqualToAnchor(leadingAnchor, constant: 8),
-            pageControlView.trailingAnchor.constraintEqualToAnchor(trailingAnchor, constant:  -8),
+            pageControlView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            pageControlView.trailingAnchor.constraint(equalTo: trailingAnchor, constant:  -8),
             bottomPageControlViewAnchor,
-            pageControlView.heightAnchor.constraintEqualToConstant(PageControlView.radiusExpanded)
+            pageControlView.heightAnchor.constraint(equalToConstant: PageControlView.radiusExpanded)
             ].flatMap { $0 }
-        NSLayoutConstraint.activateConstraints(pageControlViewAnchors)
+        NSLayoutConstraint.activate(pageControlViewAnchors)
     } else {
         let pageControlViewAnchors = [
             pageControlView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor, constant: 8),
@@ -96,14 +96,14 @@ public final class OnboardingView: UIView {
             bottomPageControlViewAnchor,
             pageControlView.anchors.heightAnchor.constraintEqualToConstant(PageControlView.radiusExpanded)
             ].flatMap { $0 }
-        NSLayoutConstraint.activateConstraints(pageControlViewAnchors)
+        NSLayoutConstraint.activate(pageControlViewAnchors)
     }
     
     // Add resture recognizers
     addRecognizers()
   }
   
-  private func reload() {
+  fileprivate func reload() {
     if let dataSource = dataSource {
       pageControlView.pages = dataSource.numberOfPages()
       
@@ -118,7 +118,7 @@ public final class OnboardingView: UIView {
     }
   }
   
-  private func preparedPageView(at page: Int) -> PageView {
+  fileprivate func preparedPageView(at page: Int) -> PageView {
     guard let dataSource = dataSource else {
       fatalError("DataSource not found!")
     }
@@ -134,12 +134,12 @@ public final class OnboardingView: UIView {
     
     if #available(iOS 9.0, *) {
         let anchors = [
-            pageView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
-            pageView.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
-            pageView.topAnchor.constraintEqualToAnchor(topAnchor),
-            pageView.bottomAnchor.constraintEqualToAnchor(bottomAnchor)
+            pageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            pageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            pageView.topAnchor.constraint(equalTo: topAnchor),
+            pageView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ].flatMap { $0 }
-        NSLayoutConstraint.activateConstraints(anchors)
+        NSLayoutConstraint.activate(anchors)
     } else {
         let _anchors = [
             pageView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor),
@@ -147,7 +147,7 @@ public final class OnboardingView: UIView {
             pageView.anchors.topAnchor.constraintEqualToAnchor(anchors.topAnchor),
             pageView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor)
             ].flatMap { $0 }
-        NSLayoutConstraint.activateConstraints(_anchors)
+        NSLayoutConstraint.activate(_anchors)
     }
     
     pageView.configuration = config
@@ -155,20 +155,20 @@ public final class OnboardingView: UIView {
     return pageView
   }
   
-  private func addRecognizers() {
+  fileprivate func addRecognizers() {
     let leftSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(OnboardingView.didRecognizeSwipe(_:)))
-    leftSwipeRecognizer.direction = .Left
+    leftSwipeRecognizer.direction = .left
     
     let rightSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(OnboardingView.didRecognizeSwipe(_:)))
-    rightSwipeRecognizer.direction = .Right
+    rightSwipeRecognizer.direction = .right
     
     addGestureRecognizer(leftSwipeRecognizer)
     addGestureRecognizer(rightSwipeRecognizer)
   }
   
-  internal func didRecognizeSwipe(recognizer: UISwipeGestureRecognizer) {
+  internal func didRecognizeSwipe(_ recognizer: UISwipeGestureRecognizer) {
     switch recognizer.direction {
-    case UISwipeGestureRecognizerDirection.Left:
+    case UISwipeGestureRecognizerDirection.left:
       guard pageControlView.currentPage + 1 < pageControlView.pages else {
         return
       }
@@ -181,18 +181,18 @@ public final class OnboardingView: UIView {
       
       insertSubview(current, aboveSubview: previous)
       
-      maskPageView(current, state: .Folded)
+      maskPageView(current, state: .folded)
       
       current.alpha = 1
       
-      animatePageView(current, forState: .Expanded) {
+      animatePageView(current, forState: .expanded) {
         self.delegate?.onboardingView?(self, didSelectPage: self.pageControlView.currentPage)
       }
       
       animateSubviews(current)
-      animatePageView(previous, forState: .FadeIn)
+      animatePageView(previous, forState: .fadeIn)
       
-    case UISwipeGestureRecognizerDirection.Right:
+    case UISwipeGestureRecognizerDirection.right:
       guard pageControlView.currentPage - 1 >= 0 else {
         return
       }
@@ -205,16 +205,16 @@ public final class OnboardingView: UIView {
       
       insertSubview(current, aboveSubview: next)
       
-      maskPageView(current, state: .Folded)
+      maskPageView(current, state: .folded)
       
       current.alpha = 1
       
-      animatePageView(current, forState: .Expanded) {
+      animatePageView(current, forState: .expanded) {
         self.delegate?.onboardingView?(self, didSelectPage: self.pageControlView.currentPage)
       }
       
       animateSubviews(current)
-      animatePageView(next, forState: .FadeIn)
+      animatePageView(next, forState: .fadeIn)
       
       
     default:
@@ -222,11 +222,11 @@ public final class OnboardingView: UIView {
     }
   }
   
-  private func currentPageView() -> PageView {
+  fileprivate func currentPageView() -> PageView {
     return pageViews[pageControlView.currentPage]
   }
   
-  private func nextPageView() -> PageView {
+  fileprivate func nextPageView() -> PageView {
     return pageViews[pageControlView.currentPage + 1]
   }
   
@@ -237,33 +237,33 @@ public final class OnboardingView: UIView {
   // MARK: Animation
   
   internal enum State {
-    case Expanded
-    case Folded
-    case FadeOut
-    case FadeIn
+    case expanded
+    case folded
+    case fadeOut
+    case fadeIn
   }
   
-  private func animateSubviews(pageView: PageView) {
+  fileprivate func animateSubviews(_ pageView: PageView) {
     
-    let subviews = [
+    let subviews: [UIView] = [
       pageView.imageView,
       pageView.titleLabel,
       pageView.descriptionLabel
     ]
     
     subviews.forEach {
-      $0.transform = CGAffineTransformMakeTranslation(0, 25)
+      $0.transform = CGAffineTransform(translationX: 0, y: 25)
       $0.alpha = 0
     }
     
-    UIView.animateWithDuration(
-      0.5,
+    UIView.animate(
+      withDuration: 0.5,
       delay: 0.3,
-      options: [.CurveEaseOut],
+      options: [.curveEaseOut],
       
       animations: {
         subviews.forEach {
-          $0.transform = CGAffineTransformIdentity
+          $0.transform = CGAffineTransform.identity
           $0.alpha = 1
         }
       },
@@ -272,31 +272,31 @@ public final class OnboardingView: UIView {
     )
   }
   
-  private func pathForState(state: State) -> UIBezierPath {
+  fileprivate func pathForState(_ state: State) -> UIBezierPath {
     let center = pageControlView.frame.midPoint
     
     return UIBezierPath(
       arcCenter: center,
-      radius: state == .Expanded ? frame.height * 2 : 0.1,
+      radius: state == .expanded ? frame.height * 2 : 0.1,
       startAngle: 0,
       endAngle: CGFloat(M_PI) * 2,
       clockwise: false
     )
   }
-  
-  private func maskPageView(pageView: PageView, state: State = .Folded) {
+    
+  fileprivate func maskPageView(_ pageView: PageView, state: State = .folded) {
     let shape = CAShapeLayer()
-    shape.path = pathForState(state).CGPath
+    shape.path = pathForState(state).cgPath
     pageView.layer.mask = shape
   }
   
-  func animatePageView(pageView: PageView, forState state: State, completion: ((Void) -> Void)? = nil) {
-    if state == .Expanded || state == .Folded {
+  func animatePageView(_ pageView: PageView, forState state: State, completion: ((Void) -> Void)? = nil) {
+    if state == .expanded || state == .folded {
       if let shapeLayer = pageView.layer.mask as? CAShapeLayer {
         let animation = CABasicAnimation(keyPath: "path")
-        animation.toValue = pathForState(state).CGPath
+        animation.toValue = pathForState(state).cgPath
         animation.duration = 0.7
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         animation.fillMode = kCAFillModeBoth
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
         
@@ -307,19 +307,19 @@ public final class OnboardingView: UIView {
           completionObj.completion = completion
         }
         
-        shapeLayer.addAnimation(animation, forKey: nil)
+        shapeLayer.add(animation, forKey: nil)
       }
     } else {
-      UIView.animateWithDuration(0.8) {
-        pageView.alpha = state == .FadeIn ? 0 : 1
-      }
+      UIView.animate(withDuration: 0.8, animations: {
+        pageView.alpha = state == .fadeIn ? 0 : 1
+      }) 
     }
 
   }
   
-  // MARK: Animation delegate 
-  
-  public override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+  // MARK: Animation delegate
+    
+  public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
     let completionObj = CompletionObject.sharedInstance
     completionObj.complete()
   }

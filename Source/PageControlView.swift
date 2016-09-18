@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import TZStackView
+//import TZStackView
 
 public final class PageControlView: UIView {
   
@@ -26,12 +26,12 @@ public final class PageControlView: UIView {
         let item = items[currentPage]
         
         if oldValue < currentPage {
-          prevItem.state = .Filled
+          prevItem.state = .filled
         } else {
-          prevItem.state = .Default
+          prevItem.state = .default
         }
         
-        item.state = .Selected 
+        item.state = .selected 
       } else {
         if currentPage >= pages {
           currentPage = pages - 1
@@ -46,9 +46,9 @@ public final class PageControlView: UIView {
   
   public var items: [PageItemView] = []
   
-  private var stackView = TZStackView()
-  private var stackViewCenterXAnchor: NSLayoutConstraint!
-  private var stackViewWidthAnchor: NSLayoutConstraint!
+  fileprivate var stackView = TZStackView()
+  fileprivate var stackViewCenterXAnchor: NSLayoutConstraint!
+  fileprivate var stackViewWidthAnchor: NSLayoutConstraint!
   
   // MARK: Life cycle 
   
@@ -69,18 +69,18 @@ public final class PageControlView: UIView {
   
   public override func layoutSubviews() {
     super.layoutSubviews()
-    centerSelectedItem(animated: false)
+    centerSelectedItem(false)
   }
   
   // MARK: Setup
   
-  private func setup() {
+  fileprivate func setup() {
     addSubview(stackView)
     
     // Common StackView setup
-    stackView.axis = .Horizontal
-    stackView.alignment = .Fill
-    stackView.distribution = .FillEqually
+    stackView.axis = .horizontal
+    stackView.alignment = .fill
+    stackView.distribution = .fillEqually
     
     stackView.spacing = -40 // TODO: Make it inspectable 
 
@@ -96,11 +96,11 @@ public final class PageControlView: UIView {
     if #available(iOS 9.0, *) {
         let anchors = [
             stackViewWidthAnchor,
-            stackView.heightAnchor.constraintEqualToConstant(height),
+            stackView.heightAnchor.constraint(equalToConstant: height),
             stackViewCenterXAnchor,
-            stackView.centerYAnchor.constraintEqualToAnchor(centerYAnchor)
+            stackView.centerYAnchor.constraint(equalTo: centerYAnchor)
             ].flatMap { $0 }
-        NSLayoutConstraint.activateConstraints(anchors)
+        NSLayoutConstraint.activate(anchors)
     } else {
         let _anchors = [
             stackViewWidthAnchor,
@@ -108,7 +108,7 @@ public final class PageControlView: UIView {
             stackViewCenterXAnchor,
             stackView.anchors.centerYAnchor.constraintEqualToAnchor(anchors.centerYAnchor)
             ].flatMap { $0 }
-        NSLayoutConstraint.activateConstraints(_anchors)
+        NSLayoutConstraint.activate(_anchors)
     }
     
     for _ in 0..<pages {
@@ -120,14 +120,14 @@ public final class PageControlView: UIView {
     if !items.isEmpty {
       let selectedItem = items[0]
       selectedItem.animated = false
-      selectedItem.state = .Selected
+      selectedItem.state = .selected
       selectedItem.animated = true
       
-      centerSelectedItem(animated: false)
+      centerSelectedItem(false)
     }
   }
   
-  private func reload() {
+  fileprivate func reload() {
     subviews.forEach { $0.removeFromSuperview() }
     
     stackView = TZStackView()
@@ -138,25 +138,24 @@ public final class PageControlView: UIView {
     setup()
   }
   
-  private func centerSelectedItem(animated animated: Bool = true) {
+  fileprivate func centerSelectedItem(_ animated: Bool = true) {
     let item = items[currentPage]
     let delta = stackView.bounds.midX - item.frame.midX
     stackViewCenterXAnchor.constant = delta
   
     if animated {
-      UIView.animateWithDuration(
-        0.7,
-        delay: 0,
-        options: .CurveEaseInOut,
-        animations: {
-          self.stackView.layoutIfNeeded()
-        },
+        UIView.animate(
+            withDuration: 0.7,
+            delay: 0,
+            options: .curveEaseInOut,
+            animations: {
+                self.layoutIfNeeded()
+            },
         
-        completion: nil
+            completion: nil
       )
     } else {
       stackView.layoutIfNeeded()
     }
-
   }
 }

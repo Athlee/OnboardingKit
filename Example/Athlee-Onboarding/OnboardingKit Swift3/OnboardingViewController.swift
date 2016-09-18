@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import OnboardingKit
+//import OnboardingKit
 
 public final class OnboardingViewController: UIViewController {
 
@@ -32,7 +32,7 @@ public final class OnboardingViewController: UIViewController {
     
     model.didShow = { page in
       if page == 4 {
-        UIView.animateWithDuration(0.3) {
+        UIView.animate(withDuration: 0.3) {
           self.nextButton.alpha = 1
         }
       }
@@ -45,8 +45,7 @@ public final class OnboardingViewController: UIViewController {
     }
   }
   
-  public override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return .LightContent
-  }
-
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }

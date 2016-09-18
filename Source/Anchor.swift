@@ -28,34 +28,34 @@ public struct Anchors {
     }
     
     public var leadingAnchor: LayoutXAxisAnchor {
-        return LayoutXAxisAnchor(item:item, attribute:.Leading)
+        return LayoutXAxisAnchor(item:item, attribute:.leading)
     }
     public var trailingAnchor: LayoutXAxisAnchor {
-        return LayoutXAxisAnchor(item:item, attribute:.Trailing)
+        return LayoutXAxisAnchor(item:item, attribute:.trailing)
     }
     public var leftAnchor: LayoutXAxisAnchor {
-        return LayoutXAxisAnchor(item:item, attribute:.Left)
+        return LayoutXAxisAnchor(item:item, attribute:.left)
     }
     public var rightAnchor: LayoutXAxisAnchor {
-        return LayoutXAxisAnchor(item:item, attribute:.Right)
+        return LayoutXAxisAnchor(item:item, attribute:.right)
     }
     public var topAnchor: LayoutYAxisAnchor {
-        return LayoutYAxisAnchor(item:item, attribute:.Top)
+        return LayoutYAxisAnchor(item:item, attribute:.top)
     }
     public var bottomAnchor: LayoutYAxisAnchor {
-        return LayoutYAxisAnchor(item:item, attribute:.Bottom)
+        return LayoutYAxisAnchor(item:item, attribute:.bottom)
     }
     public var widthAnchor: LayoutDimension {
-        return LayoutDimension(item:item, attribute:.Width)
+        return LayoutDimension(item:item, attribute:.width)
     }
     public var heightAnchor: LayoutDimension {
-        return LayoutDimension(item:item, attribute:.Height)
+        return LayoutDimension(item:item, attribute:.height)
     }
     public var centerXAnchor: LayoutXAxisAnchor {
-        return LayoutXAxisAnchor(item:item, attribute:.CenterX)
+        return LayoutXAxisAnchor(item:item, attribute:.centerX)
     }
     public var centerYAnchor: LayoutYAxisAnchor {
-        return LayoutYAxisAnchor(item:item, attribute:.CenterY)
+        return LayoutYAxisAnchor(item:item, attribute:.centerY)
     }
 }
 
@@ -71,7 +71,7 @@ public struct Anchors {
  
  */
 
-public class LayoutAnchor {
+open class LayoutAnchor {
     
     internal var item:View
     internal var attribute:NSLayoutAttribute
@@ -82,39 +82,39 @@ public class LayoutAnchor {
     }
     
     // These methods return an inactive constraint of the form thisAnchor = otherAnchor.
-    public func constraintEqualToAnchor(anchor: LayoutAnchor) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .Equal, toItem: anchor.item, attribute: anchor.attribute, multiplier: 1.0, constant: 0.0)
+    open func constraintEqualToAnchor(_ anchor: LayoutAnchor) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .equal, toItem: anchor.item, attribute: anchor.attribute, multiplier: 1.0, constant: 0.0)
     }
     
-    public func constraintGreaterThanOrEqualToAnchor(anchor: LayoutAnchor) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .GreaterThanOrEqual, toItem: anchor.item, attribute: anchor.attribute, multiplier: 1.0, constant: 0.0)
+    open func constraintGreaterThanOrEqualToAnchor(_ anchor: LayoutAnchor) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .greaterThanOrEqual, toItem: anchor.item, attribute: anchor.attribute, multiplier: 1.0, constant: 0.0)
     }
     
-    public func constraintLessThanOrEqualToAnchor(anchor: LayoutAnchor) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .LessThanOrEqual, toItem: anchor.item, attribute: anchor.attribute, multiplier: 1.0, constant: 0.0)
+    open func constraintLessThanOrEqualToAnchor(_ anchor: LayoutAnchor) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .lessThanOrEqual, toItem: anchor.item, attribute: anchor.attribute, multiplier: 1.0, constant: 0.0)
     }
     
     // These methods return an inactive constraint of the form thisAnchor = otherAnchor + constant.
-    public func constraintEqualToAnchor(anchor: LayoutAnchor, constant c: CGFloat) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .Equal, toItem: anchor.item, attribute: anchor.attribute, multiplier: 1.0, constant: c)
+    open func constraintEqualToAnchor(_ anchor: LayoutAnchor, constant c: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .equal, toItem: anchor.item, attribute: anchor.attribute, multiplier: 1.0, constant: c)
     }
     
-    public func constraintGreaterThanOrEqualToAnchor(anchor: LayoutAnchor, constant c: CGFloat) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .GreaterThanOrEqual, toItem: anchor.item, attribute: anchor.attribute, multiplier: 1.0, constant: c)
+    open func constraintGreaterThanOrEqualToAnchor(_ anchor: LayoutAnchor, constant c: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .greaterThanOrEqual, toItem: anchor.item, attribute: anchor.attribute, multiplier: 1.0, constant: c)
     }
     
-    public func constraintLessThanOrEqualToAnchor(anchor: LayoutAnchor, constant c: CGFloat) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .LessThanOrEqual, toItem: anchor.item, attribute: anchor.attribute, multiplier: 1.0, constant: c)
+    open func constraintLessThanOrEqualToAnchor(_ anchor: LayoutAnchor, constant c: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .lessThanOrEqual, toItem: anchor.item, attribute: anchor.attribute, multiplier: 1.0, constant: c)
     }
 }
 
 // MARK: -
 
 // Axis-specific subclasses for location anchors: top/bottom, leading/trailing, baseline, etc.
-public class LayoutXAxisAnchor : LayoutAnchor {
+open class LayoutXAxisAnchor : LayoutAnchor {
 }
 
-public class LayoutYAxisAnchor : LayoutAnchor {
+open class LayoutYAxisAnchor : LayoutAnchor {
 }
 
 // MARK: -
@@ -123,44 +123,44 @@ public class LayoutYAxisAnchor : LayoutAnchor {
  This layout anchor subclass is used for sizes (width & height).
  */
 
-public class LayoutDimension : LayoutAnchor {
+open class LayoutDimension : LayoutAnchor {
     
     // These methods return an inactive constraint of the form thisVariable = constant.
-    public func constraintEqualToConstant(c: CGFloat) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .Equal, toItem: nil, attribute:.NotAnAttribute, multiplier: 1.0, constant: c)
+    open func constraintEqualToConstant(_ c: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1.0, constant: c)
     }
     
-    public func constraintGreaterThanOrEqualToConstant(c: CGFloat) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .GreaterThanOrEqual, toItem: nil, attribute:.NotAnAttribute, multiplier: 1.0, constant: c)
+    open func constraintGreaterThanOrEqualToConstant(_ c: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .greaterThanOrEqual, toItem: nil, attribute:.notAnAttribute, multiplier: 1.0, constant: c)
     }
     
-    public func constraintLessThanOrEqualToConstant(c: CGFloat) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .LessThanOrEqual, toItem: nil, attribute:.NotAnAttribute, multiplier: 1.0, constant: c)
+    open func constraintLessThanOrEqualToConstant(_ c: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .lessThanOrEqual, toItem: nil, attribute:.notAnAttribute, multiplier: 1.0, constant: c)
     }
     
     // These methods return an inactive constraint of the form thisAnchor = otherAnchor * multiplier.
-    public func constraintEqualToAnchor(anchor: LayoutDimension, multiplier m: CGFloat) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .Equal, toItem: anchor.item, attribute: anchor.attribute, multiplier: m, constant: 0)
+    open func constraintEqualToAnchor(_ anchor: LayoutDimension, multiplier m: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .equal, toItem: anchor.item, attribute: anchor.attribute, multiplier: m, constant: 0)
     }
     
-    public func constraintGreaterThanOrEqualToAnchor(anchor: LayoutDimension, multiplier m: CGFloat) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .GreaterThanOrEqual, toItem: anchor.item, attribute: anchor.attribute, multiplier: m, constant: 0)
+    open func constraintGreaterThanOrEqualToAnchor(_ anchor: LayoutDimension, multiplier m: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .greaterThanOrEqual, toItem: anchor.item, attribute: anchor.attribute, multiplier: m, constant: 0)
     }
     
-    public func constraintLessThanOrEqualToAnchor(anchor: LayoutDimension, multiplier m: CGFloat) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .LessThanOrEqual, toItem: anchor.item, attribute: anchor.attribute, multiplier: m, constant: 0)
+    open func constraintLessThanOrEqualToAnchor(_ anchor: LayoutDimension, multiplier m: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .lessThanOrEqual, toItem: anchor.item, attribute: anchor.attribute, multiplier: m, constant: 0)
     }
     
     // These methods return an inactive constraint of the form thisAnchor = otherAnchor * multiplier + constant.
-    public func constraintEqualToAnchor(anchor: LayoutDimension, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .Equal, toItem: anchor.item, attribute: anchor.attribute, multiplier: m, constant: c)
+    open func constraintEqualToAnchor(_ anchor: LayoutDimension, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .equal, toItem: anchor.item, attribute: anchor.attribute, multiplier: m, constant: c)
     }
     
-    public func constraintGreaterThanOrEqualToAnchor(anchor: LayoutDimension, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .GreaterThanOrEqual, toItem: anchor.item, attribute: anchor.attribute, multiplier: m, constant: c)
+    open func constraintGreaterThanOrEqualToAnchor(_ anchor: LayoutDimension, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .greaterThanOrEqual, toItem: anchor.item, attribute: anchor.attribute, multiplier: m, constant: c)
     }
     
-    public func constraintLessThanOrEqualToAnchor(anchor: LayoutDimension, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .LessThanOrEqual, toItem: anchor.item, attribute: anchor.attribute, multiplier: m, constant: c)
+    open func constraintLessThanOrEqualToAnchor(_ anchor: LayoutDimension, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .lessThanOrEqual, toItem: anchor.item, attribute: anchor.attribute, multiplier: m, constant: c)
     }
 }

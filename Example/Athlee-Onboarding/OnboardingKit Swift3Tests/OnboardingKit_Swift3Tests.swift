@@ -1,15 +1,15 @@
 //
-//  Athlee_OnboardingTests.swift
-//  Athlee-OnboardingTests
+//  OnboardingKit_Swift3Tests.swift
+//  OnboardingKit Swift3Tests
 //
-//  Created by mac on 07/07/16.
+//  Created by mac on 18/09/16.
 //  Copyright © 2016 Athlee. All rights reserved.
 //
 
 import XCTest
-@testable import Athlee_Onboarding
+@testable import OnboardingKit_Swift3
 
-class Athlee_OnboardingTests: XCTestCase {
+class OnboardingKit_Swift3Tests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -28,7 +28,7 @@ class Athlee_OnboardingTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }
