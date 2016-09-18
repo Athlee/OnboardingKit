@@ -17,7 +17,7 @@ internal final class CompletionObject: Completion {
   
   internal static let sharedInstance = CompletionObject()
   
-  private init() { }
+  fileprivate init() { }
   
   internal func complete() {
     completion?()

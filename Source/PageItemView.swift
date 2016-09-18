@@ -11,29 +11,29 @@ import UIKit
 public final class PageItemView: UIView {
   
   public enum State {
-    case Default
-    case Filled
-    case Selected
+    case `default`
+    case filled
+    case selected
   }
   
   // MARK: Properties
   
   public static var borderLineWidth: CGFloat = 1
-  public static var borderLineColor: UIColor = UIColor.grayColor()
+  public static var borderLineColor: UIColor = UIColor.gray
   
-  public var fillColor: UIColor = UIColor.redColor()
+  public var fillColor: UIColor = UIColor.red
   
   public var animated = true
-  public var state: State = .Default {
+  public var state: State = .default {
     didSet {
-      updateState(animated: animated)
+      updateState(animated)
     }
   }
   
   public var image: UIImage = UIImage() { didSet { imageView.image = image } }
   
-  private let circleView = UIView()
-  private let imageView = UIImageView()
+  fileprivate let circleView = UIView()
+  fileprivate let imageView = UIImageView()
   
   // MARK: Life cycle
   
@@ -54,23 +54,23 @@ public final class PageItemView: UIView {
   
   // MARK: Animation
   
-  private func updateState(animated animated: Bool = true) {
-    if self.state == .Selected {
-      imageView.transform = CGAffineTransformMakeScale(0.2, 0.2)
+  fileprivate func updateState(_ animated: Bool = true) {
+    if self.state == .selected {
+      imageView.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
       let scale = PageControlView.radiusExpanded / PageControlView.radius
       
       let animations = { [weak self] in
         self?.imageView.alpha = 1
-        self?.imageView.transform = CGAffineTransformIdentity
-        self?.circleView.transform = CGAffineTransformMakeScale(scale, scale)
+        self?.imageView.transform = CGAffineTransform.identity
+        self?.circleView.transform = CGAffineTransform(scaleX: scale, y: scale)
         self?.circleView.alpha = 0
       }
       
       if animated {
-        UIView.animateWithDuration(
-          0.5,
+        UIView.animate(
+          withDuration: 0.5,
           delay: 0,
-          options: [.CurveEaseInOut],
+          options: UIViewAnimationOptions(),
           animations: animations,
           completion: nil
         )
@@ -78,26 +78,26 @@ public final class PageItemView: UIView {
         animations()
       }
     } else {
-      if self.state == .Default {
-        circleView.backgroundColor = .clearColor()
+      if self.state == .default {
+        circleView.backgroundColor = .clear
       }
       
       let animations = {
         self.imageView.alpha = 0
-        self.imageView.transform = CGAffineTransformMakeScale(0.2, 0.2)
-        self.circleView.transform = CGAffineTransformIdentity
+        self.imageView.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+        self.circleView.transform = CGAffineTransform.identity
         self.circleView.alpha = 1
         
-        if self.state == .Filled {
+        if self.state == .filled {
           self.circleView.backgroundColor = PageItemView.borderLineColor
         }
       }
       
       if animated {
-        UIView.animateWithDuration(
-          0.5,
+        UIView.animate(
+          withDuration: 0.5,
           delay: 0,
-          options: [.CurveEaseInOut],
+          options: UIViewAnimationOptions(),
           animations: animations,
           completion: nil
         )
@@ -109,26 +109,26 @@ public final class PageItemView: UIView {
   
   // MARK: Setup
   
-  private func setup() {
-    backgroundColor = UIColor.clearColor()
+  fileprivate func setup() {
+    backgroundColor = UIColor.clear
     
     // CircleView setup
     circleView.translatesAutoresizingMaskIntoConstraints = false
     circleView.layer.cornerRadius = PageControlView.radius
     circleView.layer.borderWidth = PageItemView.borderLineWidth
-    circleView.layer.borderColor = PageItemView.borderLineColor.CGColor
-    circleView.layer.backgroundColor = UIColor.clearColor().CGColor
+    circleView.layer.borderColor = PageItemView.borderLineColor.cgColor
+    circleView.layer.backgroundColor = UIColor.clear.cgColor
     
     addSubview(circleView)
     
     if #available(iOS 9.0, *) {
         let anchors = [
-            circleView.widthAnchor.constraintEqualToConstant(PageControlView.radius * 2),
-            circleView.heightAnchor.constraintEqualToConstant(PageControlView.radius * 2),
-            circleView.centerXAnchor.constraintEqualToAnchor(centerXAnchor),
-            circleView.centerYAnchor.constraintEqualToAnchor(centerYAnchor)
+            circleView.widthAnchor.constraint(equalToConstant: PageControlView.radius * 2),
+            circleView.heightAnchor.constraint(equalToConstant: PageControlView.radius * 2),
+            circleView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            circleView.centerYAnchor.constraint(equalTo: centerYAnchor)
             ].flatMap { $0 }
-        NSLayoutConstraint.activateConstraints(anchors)
+        NSLayoutConstraint.activate(anchors)
     } else {
         let _anchors = [
             circleView.anchors.widthAnchor.constraintEqualToConstant(PageControlView.radius * 2),
@@ -136,13 +136,13 @@ public final class PageItemView: UIView {
             circleView.anchors.centerXAnchor.constraintEqualToAnchor(anchors.centerXAnchor),
             circleView.anchors.centerYAnchor.constraintEqualToAnchor(anchors.centerYAnchor)
             ].flatMap { $0 }
-        NSLayoutConstraint.activateConstraints(_anchors)
+        NSLayoutConstraint.activate(_anchors)
     }
     
     
     // ImageView setup
-    imageView.opaque = true 
-    imageView.contentMode = .ScaleAspectFit
+    imageView.isOpaque = true 
+    imageView.contentMode = .scaleAspectFit
     imageView.image = image
     imageView.translatesAutoresizingMaskIntoConstraints = false
     imageView.alpha = 0
@@ -151,12 +151,12 @@ public final class PageItemView: UIView {
     
     if #available(iOS 9.0, *) {
         let imageViewAnchors = [
-            imageView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
-            imageView.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
-            imageView.topAnchor.constraintEqualToAnchor(topAnchor),
-            imageView.bottomAnchor.constraintEqualToAnchor(bottomAnchor)
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ].flatMap { $0 }
-        NSLayoutConstraint.activateConstraints(imageViewAnchors)
+        NSLayoutConstraint.activate(imageViewAnchors)
     } else {
         let imageViewAnchors = [
             imageView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor),
@@ -164,14 +164,14 @@ public final class PageItemView: UIView {
             imageView.anchors.topAnchor.constraintEqualToAnchor(anchors.topAnchor),
             imageView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor)
             ].flatMap { $0 }
-        NSLayoutConstraint.activateConstraints(imageViewAnchors)
+        NSLayoutConstraint.activate(imageViewAnchors)
     }
     
   }
   
   // MARK: Layer utils
   
-  private func borderLayer() -> CALayer {
+  fileprivate func borderLayer() -> CALayer {
     let path = UIBezierPath(
       arcCenter: bounds.midPoint,
       radius: PageControlView.radius,
@@ -182,14 +182,14 @@ public final class PageItemView: UIView {
     
     let layer = CAShapeLayer()
     layer.lineWidth = PageItemView.borderLineWidth
-    layer.strokeColor = PageItemView.borderLineColor.CGColor
-    layer.fillColor = UIColor.clearColor().CGColor
-    layer.path = path.CGPath
+    layer.strokeColor = PageItemView.borderLineColor.cgColor
+    layer.fillColor = UIColor.clear.cgColor
+    layer.path = path.cgPath
     
     return layer
   }
   
-  private func expandedCircleLayer() -> CALayer {
+  fileprivate func expandedCircleLayer() -> CALayer {
     let path = UIBezierPath(
       arcCenter: bounds.midPoint,
       radius: PageControlView.radiusExpanded,
@@ -200,9 +200,9 @@ public final class PageItemView: UIView {
     
     let layer = CAShapeLayer()
     layer.lineWidth = PageItemView.borderLineWidth
-    layer.strokeColor = UIColor.redColor().CGColor
-    layer.fillColor = UIColor.redColor().CGColor
-    layer.path = path.CGPath
+    layer.strokeColor = UIColor.red.cgColor
+    layer.fillColor = UIColor.red.cgColor
+    layer.path = path.cgPath
     
     return layer
   }

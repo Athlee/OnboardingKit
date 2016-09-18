@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import OnboardingKit
+//import OnboardingKit
 
 public final class DataModel: NSObject, OnboardingViewDelegate, OnboardingViewDataSource {
   
@@ -18,7 +18,7 @@ public final class DataModel: NSObject, OnboardingViewDelegate, OnboardingViewDa
     return 5
   }
   
-  public func onboardingView(onboardingView: OnboardingView, configurationForPage page: Int) -> OnboardingConfiguration {
+  public func onboardingView(_ onboardingView: OnboardingView, configurationForPage page: Int) -> OnboardingConfiguration {
     switch page {
       
     case 0:
@@ -81,26 +81,26 @@ public final class DataModel: NSObject, OnboardingViewDelegate, OnboardingViewDa
     }
   }
   
-  public func onboardingView(onboardingView: OnboardingView, configurePageView pageView: PageView, atPage page: Int) {
-    pageView.titleLabel.textColor = UIColor.whiteColor()
+  public func onboardingView(_ onboardingView: OnboardingView, configurePageView pageView: PageView, atPage page: Int) {
+    pageView.titleLabel.textColor = UIColor.white
     pageView.titleLabel.layer.shadowOpacity = 0.6
-    pageView.titleLabel.layer.shadowColor = UIColor.blackColor().CGColor
+    pageView.titleLabel.layer.shadowColor = UIColor.black.cgColor
     pageView.titleLabel.layer.shadowOffset = CGSize(width: 0, height: 1)
     pageView.titleLabel.layer.shouldRasterize = true
-    pageView.titleLabel.layer.rasterizationScale = UIScreen.mainScreen().scale
+    pageView.titleLabel.layer.rasterizationScale = UIScreen.main.scale
     
     if DeviceTarget.IS_IPHONE_4 {
-      pageView.titleLabel.font = UIFont.boldSystemFontOfSize(30)
-      pageView.descriptionLabel.font = UIFont.systemFontOfSize(15)
+      pageView.titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
+      pageView.descriptionLabel.font = UIFont.systemFont(ofSize: 15)
     }
   }
   
-  public func onboardingView(onboardingView: OnboardingView, didSelectPage page: Int) {
+  public func onboardingView(_ onboardingView: OnboardingView, didSelectPage page: Int) {
     print("Did select pge \(page)")
     didShow?(page)
   }
   
-  public func onboardingView(onboardingView: OnboardingView, willSelectPage page: Int) {
+  public func onboardingView(_ onboardingView: OnboardingView, willSelectPage page: Int) {
     print("Will select page \(page)")
     willShow?(page)
   }

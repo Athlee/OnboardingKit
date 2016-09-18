@@ -10,5 +10,5 @@ import UIKit
 
 public protocol OnboardingViewDataSource: class {
   func numberOfPages() -> Int
-  func onboardingView(onboardingView: OnboardingView, configurationForPage page: Int) -> OnboardingConfiguration
+  func onboardingView(_ onboardingView: OnboardingView, configurationForPage page: Int) -> OnboardingConfiguration
 }
