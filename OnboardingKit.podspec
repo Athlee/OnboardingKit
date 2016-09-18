@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "OnboardingKit"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "A simple and interactive framework for making iOS onboarding experience easy and fun!"
   s.homepage     = "https://github.com/Athlee/OnboardingKit"
   s.license      = { :type => "MIT", :file => "LICENSE" }
@@ -18,9 +18,10 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
   s.ios.deployment_target = "8.0"
   s.source       = { :git => "https://github.com/Athlee/OnboardingKit.git", :tag => s.version }
-  s.source_files  = "Source/*.swift"
+  s.source_files  = "Source/**/*.swift"
   s.requires_arc = true
 
-  s.dependency 'TZStackView'
+  # Waiting for Swift 3 support
+  # s.dependency 'TZStackView'
 
 end
