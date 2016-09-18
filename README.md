@@ -6,6 +6,10 @@
 
 `OnboardingKit` is a simple and interactive framework for making iOS onboarding experience easy and fun!  
 
+### Requirements
+- Swift 3 & Xcode 8.x.x (check out v0.0.3 & [swift2](https://github.com/Athlee/OnboardingKit/tree/swift2) branch for previous version)
+- iOS 8+
+
 ### Features 
 - [x] Customizable page views 
 - [x] Customizable background images 
@@ -40,7 +44,7 @@ Implement `OnboardingViewDataSource` and `OnboardingViewDelegate` protocols with
         return 1
       }
       
-      func onboardingView(onboardingView: OnboardingView, configurationForPage page: Int) -> OnboardingConfiguration {
+      func onboardingView(_ onboardingView: OnboardingView, configurationForPage page: Int) -> OnboardingConfiguration {
         return OnboardingConfiguration(
           image: UIImage(named: "DemoImage")!,
           itemImage: UIImage(named: "DemoIcon")!,
@@ -71,13 +75,18 @@ Implement `OnboardingViewDataSource` and `OnboardingViewDelegate` protocols with
 If you need a custom configuration for a `PageView` this is possible with a delegate's method `onboardingView(_:, configurePageView _:, atPage _:)`. 
 
 ```swift
-  func onboardingView(onboardingView: OnboardingView, configurePageView pageView: PageView, atPage page: Int) {
-    pageView.titleLabel.textColor = UIColor.whiteColor()
+ func onboardingView(_ onboardingView: OnboardingView, configurePageView pageView: PageView, atPage page: Int) {
+    pageView.titleLabel.textColor = UIColor.white
     pageView.titleLabel.layer.shadowOpacity = 0.6
-    pageView.titleLabel.layer.shadowColor = UIColor.blackColor().CGColor
+    pageView.titleLabel.layer.shadowColor = UIColor.black.cgColor
     pageView.titleLabel.layer.shadowOffset = CGSize(width: 0, height: 1)
     pageView.titleLabel.layer.shouldRasterize = true
-    pageView.titleLabel.layer.rasterizationScale = UIScreen.mainScreen().scale
+    pageView.titleLabel.layer.rasterizationScale = UIScreen.main.scale
+    
+    if DeviceTarget.IS_IPHONE_4 {
+      pageView.titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
+      pageView.descriptionLabel.font = UIFont.systemFont(ofSize: 15)
+    }
   }
 ```
 
