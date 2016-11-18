@@ -216,7 +216,7 @@ open class TZStackView: UIView {
             switch distribution {
             case .fillEqually, .fill, .fillProportionally:
                 if alignment != .fill || layoutMarginsRelativeArrangement {
-                    addSpacerView()
+                    _ = addSpacerView()
                 }
 
                 stackViewConstraints += createMatchEdgesContraints(arrangedSubviews)
@@ -248,7 +248,7 @@ open class TZStackView: UIView {
                     index += 1
                 }
                 if spacerViews.count == 0 {
-                    addSpacerView()
+                    _ = addSpacerView()
                 }
                 
                 stackViewConstraints += createMatchEdgesContraints(arrangedSubviews)
@@ -270,11 +270,11 @@ open class TZStackView: UIView {
             case .equalCentering:
                 for (index, _) in visibleArrangedSubviews.enumerated() {
                     if index > 0 {
-                        addSpacerView()
+                        _ = addSpacerView()
                     }
                 }
                 if spacerViews.count == 0 {
-                    addSpacerView()
+                    _ = addSpacerView()
                 }
                 
                 stackViewConstraints += createMatchEdgesContraints(arrangedSubviews)
