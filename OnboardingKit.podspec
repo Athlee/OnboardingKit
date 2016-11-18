@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "OnboardingKit"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "A simple and interactive framework for making iOS onboarding experience easy and fun!"
   s.homepage     = "https://github.com/Athlee/OnboardingKit"
   s.license      = { :type => "MIT", :file => "LICENSE" }
