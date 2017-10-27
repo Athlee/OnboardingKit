@@ -176,7 +176,7 @@ public final class PageItemView: UIView {
       arcCenter: bounds.midPoint,
       radius: PageControlView.radius,
       startAngle: 0,
-      endAngle: CGFloat(M_PI) * 2,
+      endAngle: CGFloat(Double.pi * 2),
       clockwise: false
     )
     
@@ -194,7 +194,7 @@ public final class PageItemView: UIView {
       arcCenter: bounds.midPoint,
       radius: PageControlView.radiusExpanded,
       startAngle: 0,
-      endAngle: CGFloat(M_PI) * 2,
+      endAngle: CGFloat(Double.pi * 2),
       clockwise: false
     )
     
