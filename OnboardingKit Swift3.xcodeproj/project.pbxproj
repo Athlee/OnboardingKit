@@ -15,39 +15,39 @@
 		048680A81D8E2489004B011E /* DeviceTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680A51D8E2489004B011E /* DeviceTarget.swift */; };
 		048680A91D8E2489004B011E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680A61D8E2489004B011E /* OnboardingViewController.swift */; };
 		048680AB1D8E2499004B011E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048680AA1D8E2499004B011E /* Main.storyboard */; };
-		048680DF1D8E2BA9004B011E /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D01D8E2BA9004B011E /* Anchor.swift */; };
-		048680E01D8E2BA9004B011E /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D11D8E2BA9004B011E /* CGRect.swift */; };
-		048680E11D8E2BA9004B011E /* CompletionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D21D8E2BA9004B011E /* CompletionObject.swift */; };
-		048680E21D8E2BA9004B011E /* OnboardingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D31D8E2BA9004B011E /* OnboardingConfiguration.swift */; };
-		048680E31D8E2BA9004B011E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D41D8E2BA9004B011E /* OnboardingView.swift */; };
-		048680E41D8E2BA9004B011E /* OnboardingViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D51D8E2BA9004B011E /* OnboardingViewDataSource.swift */; };
-		048680E51D8E2BA9004B011E /* OnboardingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D61D8E2BA9004B011E /* OnboardingViewDelegate.swift */; };
-		048680E61D8E2BA9004B011E /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D71D8E2BA9004B011E /* PageControlView.swift */; };
-		048680E71D8E2BA9004B011E /* PageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D81D8E2BA9004B011E /* PageItemView.swift */; };
-		048680E81D8E2BA9004B011E /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D91D8E2BA9004B011E /* PageView.swift */; };
-		048680E91D8E2BA9004B011E /* TZSpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680DB1D8E2BA9004B011E /* TZSpacerView.swift */; };
-		048680EA1D8E2BA9004B011E /* TZStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680DC1D8E2BA9004B011E /* TZStackView.swift */; };
-		048680EB1D8E2BA9004B011E /* TZStackViewAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680DD1D8E2BA9004B011E /* TZStackViewAlignment.swift */; };
-		048680EC1D8E2BA9004B011E /* TZStackViewDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680DE1D8E2BA9004B011E /* TZStackViewDistribution.swift */; };
+		8330F1821FA3A0440026DD16 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1731FA3A0440026DD16 /* Anchor.swift */; };
+		8330F1831FA3A0440026DD16 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1741FA3A0440026DD16 /* CGRect.swift */; };
+		8330F1841FA3A0440026DD16 /* CompletionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1751FA3A0440026DD16 /* CompletionObject.swift */; };
+		8330F1851FA3A0440026DD16 /* OnboardingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1761FA3A0440026DD16 /* OnboardingConfiguration.swift */; };
+		8330F1861FA3A0440026DD16 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1771FA3A0440026DD16 /* OnboardingView.swift */; };
+		8330F1871FA3A0440026DD16 /* OnboardingViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1781FA3A0440026DD16 /* OnboardingViewDataSource.swift */; };
+		8330F1881FA3A0440026DD16 /* OnboardingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1791FA3A0440026DD16 /* OnboardingViewDelegate.swift */; };
+		8330F1891FA3A0440026DD16 /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F17A1FA3A0440026DD16 /* PageControlView.swift */; };
+		8330F18A1FA3A0440026DD16 /* PageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F17B1FA3A0440026DD16 /* PageItemView.swift */; };
+		8330F18B1FA3A0440026DD16 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F17C1FA3A0440026DD16 /* PageView.swift */; };
+		8330F18C1FA3A0440026DD16 /* TZSpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F17E1FA3A0440026DD16 /* TZSpacerView.swift */; };
+		8330F18D1FA3A0440026DD16 /* TZStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F17F1FA3A0440026DD16 /* TZStackView.swift */; };
+		8330F18E1FA3A0440026DD16 /* TZStackViewAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1801FA3A0440026DD16 /* TZStackViewAlignment.swift */; };
+		8330F18F1FA3A0440026DD16 /* TZStackViewDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1811FA3A0440026DD16 /* TZStackViewDistribution.swift */; };
+		8330F1901FA3A08F0026DD16 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1731FA3A0440026DD16 /* Anchor.swift */; };
+		8330F1911FA3A08F0026DD16 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1741FA3A0440026DD16 /* CGRect.swift */; };
+		8330F1921FA3A08F0026DD16 /* CompletionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1751FA3A0440026DD16 /* CompletionObject.swift */; };
+		8330F1931FA3A08F0026DD16 /* OnboardingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1761FA3A0440026DD16 /* OnboardingConfiguration.swift */; };
+		8330F1941FA3A08F0026DD16 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1771FA3A0440026DD16 /* OnboardingView.swift */; };
+		8330F1951FA3A08F0026DD16 /* OnboardingViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1781FA3A0440026DD16 /* OnboardingViewDataSource.swift */; };
+		8330F1961FA3A08F0026DD16 /* OnboardingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1791FA3A0440026DD16 /* OnboardingViewDelegate.swift */; };
+		8330F1971FA3A08F0026DD16 /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F17A1FA3A0440026DD16 /* PageControlView.swift */; };
+		8330F1981FA3A08F0026DD16 /* PageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F17B1FA3A0440026DD16 /* PageItemView.swift */; };
+		8330F1991FA3A08F0026DD16 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F17C1FA3A0440026DD16 /* PageView.swift */; };
+		8330F19A1FA3A08F0026DD16 /* TZSpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F17E1FA3A0440026DD16 /* TZSpacerView.swift */; };
+		8330F19B1FA3A08F0026DD16 /* TZStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F17F1FA3A0440026DD16 /* TZStackView.swift */; };
+		8330F19C1FA3A08F0026DD16 /* TZStackViewAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1801FA3A0440026DD16 /* TZStackViewAlignment.swift */; };
+		8330F19D1FA3A08F0026DD16 /* TZStackViewDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F1811FA3A0440026DD16 /* TZStackViewDistribution.swift */; };
 		8378F1551FA3933D001BC548 /* OnboardingKitSwift4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8378F14C1FA3933D001BC548 /* OnboardingKitSwift4.framework */; };
 		8378F15C1FA3933D001BC548 /* OnboardingKitSwift4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378F15B1FA3933D001BC548 /* OnboardingKitSwift4Tests.swift */; };
 		8378F15E1FA3933D001BC548 /* OnboardingKitSwift4.h in Headers */ = {isa = PBXBuildFile; fileRef = 8378F14E1FA3933D001BC548 /* OnboardingKitSwift4.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8378F1611FA3933D001BC548 /* OnboardingKitSwift4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8378F14C1FA3933D001BC548 /* OnboardingKitSwift4.framework */; };
 		8378F1621FA3933D001BC548 /* OnboardingKitSwift4.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8378F14C1FA3933D001BC548 /* OnboardingKitSwift4.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8378F16A1FA3964F001BC548 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D01D8E2BA9004B011E /* Anchor.swift */; };
-		8378F16B1FA3964F001BC548 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D11D8E2BA9004B011E /* CGRect.swift */; };
-		8378F16C1FA3964F001BC548 /* CompletionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D21D8E2BA9004B011E /* CompletionObject.swift */; };
-		8378F16D1FA3964F001BC548 /* OnboardingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D31D8E2BA9004B011E /* OnboardingConfiguration.swift */; };
-		8378F16E1FA3964F001BC548 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D41D8E2BA9004B011E /* OnboardingView.swift */; };
-		8378F16F1FA3964F001BC548 /* OnboardingViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D51D8E2BA9004B011E /* OnboardingViewDataSource.swift */; };
-		8378F1701FA3964F001BC548 /* OnboardingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D61D8E2BA9004B011E /* OnboardingViewDelegate.swift */; };
-		8378F1711FA3964F001BC548 /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D71D8E2BA9004B011E /* PageControlView.swift */; };
-		8378F1721FA3964F001BC548 /* PageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D81D8E2BA9004B011E /* PageItemView.swift */; };
-		8378F1731FA3964F001BC548 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D91D8E2BA9004B011E /* PageView.swift */; };
-		8378F1741FA3964F001BC548 /* TZSpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680DB1D8E2BA9004B011E /* TZSpacerView.swift */; };
-		8378F1751FA3964F001BC548 /* TZStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680DC1D8E2BA9004B011E /* TZStackView.swift */; };
-		8378F1761FA3964F001BC548 /* TZStackViewAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680DD1D8E2BA9004B011E /* TZStackViewAlignment.swift */; };
-		8378F1771FA3964F001BC548 /* TZStackViewDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680DE1D8E2BA9004B011E /* TZStackViewDistribution.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,20 +108,20 @@
 		048680A51D8E2489004B011E /* DeviceTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTarget.swift; sourceTree = "<group>"; };
 		048680A61D8E2489004B011E /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		048680AA1D8E2499004B011E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		048680D01D8E2BA9004B011E /* Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
-		048680D11D8E2BA9004B011E /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
-		048680D21D8E2BA9004B011E /* CompletionObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionObject.swift; sourceTree = "<group>"; };
-		048680D31D8E2BA9004B011E /* OnboardingConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingConfiguration.swift; sourceTree = "<group>"; };
-		048680D41D8E2BA9004B011E /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		048680D51D8E2BA9004B011E /* OnboardingViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewDataSource.swift; sourceTree = "<group>"; };
-		048680D61D8E2BA9004B011E /* OnboardingViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewDelegate.swift; sourceTree = "<group>"; };
-		048680D71D8E2BA9004B011E /* PageControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControlView.swift; sourceTree = "<group>"; };
-		048680D81D8E2BA9004B011E /* PageItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemView.swift; sourceTree = "<group>"; };
-		048680D91D8E2BA9004B011E /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
-		048680DB1D8E2BA9004B011E /* TZSpacerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZSpacerView.swift; sourceTree = "<group>"; };
-		048680DC1D8E2BA9004B011E /* TZStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZStackView.swift; sourceTree = "<group>"; };
-		048680DD1D8E2BA9004B011E /* TZStackViewAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZStackViewAlignment.swift; sourceTree = "<group>"; };
-		048680DE1D8E2BA9004B011E /* TZStackViewDistribution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZStackViewDistribution.swift; sourceTree = "<group>"; };
+		8330F1731FA3A0440026DD16 /* Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
+		8330F1741FA3A0440026DD16 /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
+		8330F1751FA3A0440026DD16 /* CompletionObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionObject.swift; sourceTree = "<group>"; };
+		8330F1761FA3A0440026DD16 /* OnboardingConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingConfiguration.swift; sourceTree = "<group>"; };
+		8330F1771FA3A0440026DD16 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		8330F1781FA3A0440026DD16 /* OnboardingViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewDataSource.swift; sourceTree = "<group>"; };
+		8330F1791FA3A0440026DD16 /* OnboardingViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewDelegate.swift; sourceTree = "<group>"; };
+		8330F17A1FA3A0440026DD16 /* PageControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControlView.swift; sourceTree = "<group>"; };
+		8330F17B1FA3A0440026DD16 /* PageItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemView.swift; sourceTree = "<group>"; };
+		8330F17C1FA3A0440026DD16 /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		8330F17E1FA3A0440026DD16 /* TZSpacerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZSpacerView.swift; sourceTree = "<group>"; };
+		8330F17F1FA3A0440026DD16 /* TZStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZStackView.swift; sourceTree = "<group>"; };
+		8330F1801FA3A0440026DD16 /* TZStackViewAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZStackViewAlignment.swift; sourceTree = "<group>"; };
+		8330F1811FA3A0440026DD16 /* TZStackViewDistribution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZStackViewDistribution.swift; sourceTree = "<group>"; };
 		8378F14C1FA3933D001BC548 /* OnboardingKitSwift4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OnboardingKitSwift4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8378F14E1FA3933D001BC548 /* OnboardingKitSwift4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnboardingKitSwift4.h; sourceTree = "<group>"; };
 		8378F14F1FA3933D001BC548 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,7 +167,6 @@
 		0486805A1D8E204C004B011E = {
 			isa = PBXGroup;
 			children = (
-				048680CF1D8E2BA9004B011E /* Source */,
 				048680651D8E204C004B011E /* OnboardingKit Swift3 */,
 				0486807A1D8E204D004B011E /* OnboardingKit Swift3Tests */,
 				8378F14D1FA3933D001BC548 /* OnboardingKitSwift4 */,
@@ -190,6 +189,7 @@
 		048680651D8E204C004B011E /* OnboardingKit Swift3 */ = {
 			isa = PBXGroup;
 			children = (
+				8330F1721FA3A0440026DD16 /* Source */,
 				048680CD1D8E2B58004B011E /* Resources */,
 				048680CC1D8E2B4E004B011E /* Support */,
 				048680CB1D8E2B44004B011E /* Models */,
@@ -251,32 +251,31 @@
 			name = Application;
 			sourceTree = "<group>";
 		};
-		048680CF1D8E2BA9004B011E /* Source */ = {
+		8330F1721FA3A0440026DD16 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				048680D01D8E2BA9004B011E /* Anchor.swift */,
-				048680D11D8E2BA9004B011E /* CGRect.swift */,
-				048680D21D8E2BA9004B011E /* CompletionObject.swift */,
-				048680D31D8E2BA9004B011E /* OnboardingConfiguration.swift */,
-				048680D41D8E2BA9004B011E /* OnboardingView.swift */,
-				048680D51D8E2BA9004B011E /* OnboardingViewDataSource.swift */,
-				048680D61D8E2BA9004B011E /* OnboardingViewDelegate.swift */,
-				048680D71D8E2BA9004B011E /* PageControlView.swift */,
-				048680D81D8E2BA9004B011E /* PageItemView.swift */,
-				048680D91D8E2BA9004B011E /* PageView.swift */,
-				048680DA1D8E2BA9004B011E /* TZStackView */,
+				8330F1731FA3A0440026DD16 /* Anchor.swift */,
+				8330F1741FA3A0440026DD16 /* CGRect.swift */,
+				8330F1751FA3A0440026DD16 /* CompletionObject.swift */,
+				8330F1761FA3A0440026DD16 /* OnboardingConfiguration.swift */,
+				8330F1771FA3A0440026DD16 /* OnboardingView.swift */,
+				8330F1781FA3A0440026DD16 /* OnboardingViewDataSource.swift */,
+				8330F1791FA3A0440026DD16 /* OnboardingViewDelegate.swift */,
+				8330F17A1FA3A0440026DD16 /* PageControlView.swift */,
+				8330F17B1FA3A0440026DD16 /* PageItemView.swift */,
+				8330F17C1FA3A0440026DD16 /* PageView.swift */,
+				8330F17D1FA3A0440026DD16 /* TZStackView */,
 			);
-			name = Source;
-			path = ../../Source;
-			sourceTree = "<group>";
+			path = Source;
+			sourceTree = SOURCE_ROOT;
 		};
-		048680DA1D8E2BA9004B011E /* TZStackView */ = {
+		8330F17D1FA3A0440026DD16 /* TZStackView */ = {
 			isa = PBXGroup;
 			children = (
-				048680DB1D8E2BA9004B011E /* TZSpacerView.swift */,
-				048680DC1D8E2BA9004B011E /* TZStackView.swift */,
-				048680DD1D8E2BA9004B011E /* TZStackViewAlignment.swift */,
-				048680DE1D8E2BA9004B011E /* TZStackViewDistribution.swift */,
+				8330F17E1FA3A0440026DD16 /* TZSpacerView.swift */,
+				8330F17F1FA3A0440026DD16 /* TZStackView.swift */,
+				8330F1801FA3A0440026DD16 /* TZStackViewAlignment.swift */,
+				8330F1811FA3A0440026DD16 /* TZStackViewDistribution.swift */,
 			);
 			path = TZStackView;
 			sourceTree = "<group>";
@@ -483,24 +482,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				048680E71D8E2BA9004B011E /* PageItemView.swift in Sources */,
-				048680EB1D8E2BA9004B011E /* TZStackViewAlignment.swift in Sources */,
+				8330F18A1FA3A0440026DD16 /* PageItemView.swift in Sources */,
+				8330F18E1FA3A0440026DD16 /* TZStackViewAlignment.swift in Sources */,
 				048680A91D8E2489004B011E /* OnboardingViewController.swift in Sources */,
-				048680E01D8E2BA9004B011E /* CGRect.swift in Sources */,
-				048680E11D8E2BA9004B011E /* CompletionObject.swift in Sources */,
-				048680E31D8E2BA9004B011E /* OnboardingView.swift in Sources */,
-				048680E21D8E2BA9004B011E /* OnboardingConfiguration.swift in Sources */,
-				048680E61D8E2BA9004B011E /* PageControlView.swift in Sources */,
-				048680DF1D8E2BA9004B011E /* Anchor.swift in Sources */,
+				8330F1831FA3A0440026DD16 /* CGRect.swift in Sources */,
+				8330F1841FA3A0440026DD16 /* CompletionObject.swift in Sources */,
+				8330F1861FA3A0440026DD16 /* OnboardingView.swift in Sources */,
+				8330F1851FA3A0440026DD16 /* OnboardingConfiguration.swift in Sources */,
+				8330F1891FA3A0440026DD16 /* PageControlView.swift in Sources */,
+				8330F1821FA3A0440026DD16 /* Anchor.swift in Sources */,
 				048680671D8E204C004B011E /* AppDelegate.swift in Sources */,
-				048680E91D8E2BA9004B011E /* TZSpacerView.swift in Sources */,
+				8330F18C1FA3A0440026DD16 /* TZSpacerView.swift in Sources */,
 				048680A71D8E2489004B011E /* DataModel.swift in Sources */,
-				048680EA1D8E2BA9004B011E /* TZStackView.swift in Sources */,
-				048680E51D8E2BA9004B011E /* OnboardingViewDelegate.swift in Sources */,
-				048680E41D8E2BA9004B011E /* OnboardingViewDataSource.swift in Sources */,
+				8330F18D1FA3A0440026DD16 /* TZStackView.swift in Sources */,
+				8330F1881FA3A0440026DD16 /* OnboardingViewDelegate.swift in Sources */,
+				8330F1871FA3A0440026DD16 /* OnboardingViewDataSource.swift in Sources */,
 				048680A81D8E2489004B011E /* DeviceTarget.swift in Sources */,
-				048680E81D8E2BA9004B011E /* PageView.swift in Sources */,
-				048680EC1D8E2BA9004B011E /* TZStackViewDistribution.swift in Sources */,
+				8330F18B1FA3A0440026DD16 /* PageView.swift in Sources */,
+				8330F18F1FA3A0440026DD16 /* TZStackViewDistribution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,20 +515,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8378F16A1FA3964F001BC548 /* Anchor.swift in Sources */,
-				8378F16B1FA3964F001BC548 /* CGRect.swift in Sources */,
-				8378F16C1FA3964F001BC548 /* CompletionObject.swift in Sources */,
-				8378F16D1FA3964F001BC548 /* OnboardingConfiguration.swift in Sources */,
-				8378F16E1FA3964F001BC548 /* OnboardingView.swift in Sources */,
-				8378F16F1FA3964F001BC548 /* OnboardingViewDataSource.swift in Sources */,
-				8378F1701FA3964F001BC548 /* OnboardingViewDelegate.swift in Sources */,
-				8378F1711FA3964F001BC548 /* PageControlView.swift in Sources */,
-				8378F1721FA3964F001BC548 /* PageItemView.swift in Sources */,
-				8378F1731FA3964F001BC548 /* PageView.swift in Sources */,
-				8378F1741FA3964F001BC548 /* TZSpacerView.swift in Sources */,
-				8378F1751FA3964F001BC548 /* TZStackView.swift in Sources */,
-				8378F1761FA3964F001BC548 /* TZStackViewAlignment.swift in Sources */,
-				8378F1771FA3964F001BC548 /* TZStackViewDistribution.swift in Sources */,
+				8330F1901FA3A08F0026DD16 /* Anchor.swift in Sources */,
+				8330F1911FA3A08F0026DD16 /* CGRect.swift in Sources */,
+				8330F1921FA3A08F0026DD16 /* CompletionObject.swift in Sources */,
+				8330F1931FA3A08F0026DD16 /* OnboardingConfiguration.swift in Sources */,
+				8330F1941FA3A08F0026DD16 /* OnboardingView.swift in Sources */,
+				8330F1951FA3A08F0026DD16 /* OnboardingViewDataSource.swift in Sources */,
+				8330F1961FA3A08F0026DD16 /* OnboardingViewDelegate.swift in Sources */,
+				8330F1971FA3A08F0026DD16 /* PageControlView.swift in Sources */,
+				8330F1981FA3A08F0026DD16 /* PageItemView.swift in Sources */,
+				8330F1991FA3A08F0026DD16 /* PageView.swift in Sources */,
+				8330F19A1FA3A08F0026DD16 /* TZSpacerView.swift in Sources */,
+				8330F19B1FA3A08F0026DD16 /* TZStackView.swift in Sources */,
+				8330F19C1FA3A08F0026DD16 /* TZStackViewAlignment.swift in Sources */,
+				8330F19D1FA3A08F0026DD16 /* TZStackViewDistribution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
