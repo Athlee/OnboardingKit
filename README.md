@@ -27,6 +27,9 @@ Add the following code to your `Podfile`:
   pod 'OnboardingKit'
 ```
 
+### Carthage
+github "https://github.com/ingscjoshua/OnboardingKit"
+
 # Usage
 Import the module. 
 
