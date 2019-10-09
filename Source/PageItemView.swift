@@ -70,7 +70,7 @@ public final class PageItemView: UIView {
         UIView.animate(
           withDuration: 0.5,
           delay: 0,
-          options: UIViewAnimationOptions(),
+          options: UIView.AnimationOptions(),
           animations: animations,
           completion: nil
         )
@@ -97,7 +97,7 @@ public final class PageItemView: UIView {
         UIView.animate(
           withDuration: 0.5,
           delay: 0,
-          options: UIViewAnimationOptions(),
+          options: UIView.AnimationOptions(),
           animations: animations,
           completion: nil
         )
