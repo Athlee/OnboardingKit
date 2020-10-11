@@ -166,9 +166,9 @@ public final class OnboardingView: UIView, CAAnimationDelegate {
     addGestureRecognizer(rightSwipeRecognizer)
   }
   
-  internal func didRecognizeSwipe(_ recognizer: UISwipeGestureRecognizer) {
+    @objc internal func didRecognizeSwipe(_ recognizer: UISwipeGestureRecognizer) {
     switch recognizer.direction {
-    case UISwipeGestureRecognizerDirection.left:
+    case UISwipeGestureRecognizer.Direction.left:
       guard pageControlView.currentPage + 1 < pageControlView.pages else {
         return
       }
@@ -192,7 +192,7 @@ public final class OnboardingView: UIView, CAAnimationDelegate {
       animateSubviews(current)
       animatePageView(previous, forState: .fadeIn)
       
-    case UISwipeGestureRecognizerDirection.right:
+    case UISwipeGestureRecognizer.Direction.right:
       guard pageControlView.currentPage - 1 >= 0 else {
         return
       }
@@ -290,15 +290,15 @@ public final class OnboardingView: UIView, CAAnimationDelegate {
     pageView.layer.mask = shape
   }
   
-  func animatePageView(_ pageView: PageView, forState state: State, completion: ((Void) -> Void)? = nil) {
+  func animatePageView(_ pageView: PageView, forState state: State, completion: (() -> Void)? = nil) {
     if state == .expanded || state == .folded {
       if let shapeLayer = pageView.layer.mask as? CAShapeLayer {
         let animation = CABasicAnimation(keyPath: "path")
         animation.toValue = pathForState(state).cgPath
         animation.duration = 0.7
         animation.isRemovedOnCompletion = false
-        animation.fillMode = kCAFillModeBoth
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        animation.fillMode = CAMediaTimingFillMode.both
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
         
         if let completion = completion {
           animation.delegate = self

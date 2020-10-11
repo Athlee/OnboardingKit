@@ -218,8 +218,8 @@ public final class PageView: UIView {
     //titleLabel.backgroundColor = .redColor()
     
     // This way the StackView knows how to size & align subviews.
-    imageView.setContentHuggingPriority(250, for: .vertical)
-    titleLabel.setContentHuggingPriority(252, for: .vertical)
+    imageView.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .vertical)
+    titleLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 252), for: .vertical)
   }
   
   fileprivate func setupBottomStackView() {
