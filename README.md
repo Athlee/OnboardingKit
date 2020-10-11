@@ -13,7 +13,7 @@
 ### Features 
 - [x] Customizable page views 
 - [x] Customizable background images 
-- [x] Customazible containers' background images
+- [x] Customizable containers' background images
 - [x] Animatable page control 
 - [x] Animatable transitions between pages on swipes 
 
@@ -34,7 +34,7 @@ Import the module.
   import OnboardingKit
 ```
 
-Add a `UIView` instance that inherits from `OnboardingView`. Tradinionally, you do this through Storyboard or manually. 
+Add a `UIView` instance that inherits from `OnboardingView`. Traditionally, you do this through Storyboard or manually. 
 
 Implement `OnboardingViewDataSource` and `OnboardingViewDelegate` protocols with required methods. What you have to do is to let `OnboardingView` know how many pages it should build and provide configurations for these pages. 
 
