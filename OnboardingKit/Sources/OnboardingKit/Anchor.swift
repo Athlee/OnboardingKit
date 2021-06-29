@@ -74,9 +74,9 @@ public struct Anchors {
 open class LayoutAnchor {
     
     internal var item:View
-    internal var attribute:NSLayoutAttribute
+    internal var attribute:NSLayoutConstraint.Attribute
     
-    internal init(item:View, attribute:NSLayoutAttribute) {
+    internal init(item:View, attribute:NSLayoutConstraint.Attribute) {
         self.item = item
         self.attribute = attribute
     }
