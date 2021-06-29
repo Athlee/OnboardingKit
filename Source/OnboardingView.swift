@@ -166,7 +166,7 @@ public final class OnboardingView: UIView, CAAnimationDelegate {
     addGestureRecognizer(rightSwipeRecognizer)
   }
   
-  internal func didRecognizeSwipe(_ recognizer: UISwipeGestureRecognizer) {
+    @objc internal func didRecognizeSwipe(_ recognizer: UISwipeGestureRecognizer) {
     switch recognizer.direction {
     case UISwipeGestureRecognizerDirection.left:
       guard pageControlView.currentPage + 1 < pageControlView.pages else {
@@ -290,7 +290,7 @@ public final class OnboardingView: UIView, CAAnimationDelegate {
     pageView.layer.mask = shape
   }
   
-  func animatePageView(_ pageView: PageView, forState state: State, completion: ((Void) -> Void)? = nil) {
+  func animatePageView(_ pageView: PageView, forState state: State, completion: (() -> ())? = nil) {
     if state == .expanded || state == .folded {
       if let shapeLayer = pageView.layer.mask as? CAShapeLayer {
         let animation = CABasicAnimation(keyPath: "path")

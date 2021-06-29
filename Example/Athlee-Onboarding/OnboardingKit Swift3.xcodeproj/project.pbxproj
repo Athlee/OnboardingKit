@@ -29,6 +29,7 @@
 		048680EA1D8E2BA9004B011E /* TZStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680DC1D8E2BA9004B011E /* TZStackView.swift */; };
 		048680EB1D8E2BA9004B011E /* TZStackViewAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680DD1D8E2BA9004B011E /* TZStackViewAlignment.swift */; };
 		048680EC1D8E2BA9004B011E /* TZStackViewDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680DE1D8E2BA9004B011E /* TZStackViewDistribution.swift */; };
+		45DD8E41268B452200C85E3D /* UILayoutPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DD8E40268B452200C85E3D /* UILayoutPriority.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		048680DC1D8E2BA9004B011E /* TZStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZStackView.swift; sourceTree = "<group>"; };
 		048680DD1D8E2BA9004B011E /* TZStackViewAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZStackViewAlignment.swift; sourceTree = "<group>"; };
 		048680DE1D8E2BA9004B011E /* TZStackViewDistribution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZStackViewDistribution.swift; sourceTree = "<group>"; };
+		45DD8E40268B452200C85E3D /* UILayoutPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILayoutPriority.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				048680D81D8E2BA9004B011E /* PageItemView.swift */,
 				048680D91D8E2BA9004B011E /* PageView.swift */,
 				048680DA1D8E2BA9004B011E /* TZStackView */,
+				45DD8E40268B452200C85E3D /* UILayoutPriority.swift */,
 			);
 			name = Source;
 			path = ../../Source;
@@ -269,6 +272,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -315,6 +319,7 @@
 				048680E11D8E2BA9004B011E /* CompletionObject.swift in Sources */,
 				048680E31D8E2BA9004B011E /* OnboardingView.swift in Sources */,
 				048680E21D8E2BA9004B011E /* OnboardingConfiguration.swift in Sources */,
+				45DD8E41268B452200C85E3D /* UILayoutPriority.swift in Sources */,
 				048680E61D8E2BA9004B011E /* PageControlView.swift in Sources */,
 				048680DF1D8E2BA9004B011E /* Anchor.swift in Sources */,
 				048680671D8E204C004B011E /* AppDelegate.swift in Sources */,
@@ -462,7 +467,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.athlee.OnboardingKit-Swift3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -476,7 +481,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.athlee.OnboardingKit-Swift3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
