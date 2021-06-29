@@ -13,7 +13,7 @@ internal protocol Completion {
 }
 
 internal final class CompletionObject: Completion {
-  internal var completion: ((Void) -> Void)?
+  internal var completion: (() -> ())?
   
   internal static let sharedInstance = CompletionObject()
   
